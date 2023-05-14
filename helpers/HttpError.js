@@ -1,5 +1,6 @@
 const errorMesages = {
     400: "Bad Request",
+    409: "Conflict",
 }
 
 const HttpError = (status, message = errorMesages[status]) => {

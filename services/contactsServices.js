@@ -11,9 +11,14 @@ const addContact = async (data) => {
   return contact;
 };
 
-const deleteContact = async () => {};
+const deleteContact = async (id, data) => {
+  await Contact.findByIdAndRemove(id, data);
+};
 
-const updateContact = async () => {};
+const updateContact = async (fields, data) => {
+  const contact = await Contact.findByIdAndUpdate(fields, data, {new:true});
+  return contact;
+};
 
 module.exports = {
   getAll,

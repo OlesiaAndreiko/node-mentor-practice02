@@ -18,6 +18,6 @@ router.post("/", validateAddContact, asyncWrapper(addContactCtrl));
 
 router.delete("/:contactId", asyncWrapper(deleteContactCtrl));
 
-router.put("/:contactId", asyncWrapper(updateContactCtrl));
+router.patch("/:contactId", asyncWrapper(updateContactCtrl));
 
 module.exports = router;

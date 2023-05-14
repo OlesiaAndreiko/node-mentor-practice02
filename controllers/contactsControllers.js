@@ -1,8 +1,8 @@
 const {
   getAll,
   addContact,
-//   deleteContact,
-//   updateContact,
+  deleteContact,
+  updateContact,
 } = require("../services/contactsServices");
 
 const getAllCtrl = async (req, res) => {
@@ -15,9 +15,21 @@ const addContactCtrl = async (req, res) => {
     res.status(201).json(contact);
 };
 
-const deleteContactCtrl = async (req, res) => {};
+const deleteContactCtrl = async (req, res) => {
+  const { contactId } = req.params;
+  await deleteContact(contactId);
+  res.status(204).json({
+    message: `Contact deleted`,
+  });
+};
 
-const updateContactCtrl = async (req, res) => {};
+const updateContactCtrl = async (req, res) => {
+  const { contactId } = req.params;
+  const { name, number } = req.body;
+  const user = await updateContact(contactId, { name, number });
+  console.log(user);
+  await res.status(200).json(user);
+};
 
 module.exports = {
   getAllCtrl,
