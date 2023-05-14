@@ -27,7 +27,6 @@ const updateContactCtrl = async (req, res) => {
   const { contactId } = req.params;
   const { name, number } = req.body;
   const user = await updateContact(contactId, { name, number });
-  console.log(user);
   await res.status(200).json(user);
 };
 

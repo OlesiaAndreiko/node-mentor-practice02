@@ -11,7 +11,6 @@ const authenticate = async (req, res, next) => {
   const { authorization = "" } = req.headers;
 
 //   if (typeof authorization === "undefined") {
-//     console.log(1)
 //     next(HttpError(401, "Not authorized"));
 //     return;
 //   }
